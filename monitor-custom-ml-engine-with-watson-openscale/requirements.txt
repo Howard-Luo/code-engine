@@ -1,0 +1,4 @@
+flask
+ibm_watson_machine_learning
+ibm_cloud_sdk_core
+ibm_watson_openscale
