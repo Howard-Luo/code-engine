@@ -54,11 +54,7 @@ def wml_online(space_id, deployment_id):
         print("no APIKEY, system error")
         abort(500)
 
-    payload_scoring = {
-        "input_data": [
-            request.json
-        ]
-    }
+    payload_scoring = request.json
 
     wml_client = APIClient(wml_credentials={
         "url": "https://us-south.ml.cloud.ibm.com",
@@ -70,14 +66,7 @@ def wml_online(space_id, deployment_id):
     scoring_response = wml_client.deployments.score(
         deployment_id, payload_scoring)
 
-    # Uncomment below to enable auto payload logging. You need an OpenScale subscrition ID for this.
-    # wos_client = get_wosclient()
-    # if wos_client and 'WOS_SUB_ID' in os.environ and len(os.environ['WOS_SUB_ID']) > 0:
-    #     # auto payload logging
-    #     payload_logging(wos_client, request.json, scoring_response["predictions"][0], os.environ['WOS_SUB_ID'])
-
-
-    return jsonify(scoring_response["predictions"][0])
+    return jsonify(scoring_response)
 
 
 @app.route('/spaces/<space_id>/v1/deployments', methods=['GET'])
