@@ -18,7 +18,6 @@ app = Flask(__name__)
 
 WOS_CLIENT = None
 DATA_SET_ID = None
-
 # Generate an APIKEY first and create an env variable
 # export WOSAPIKEY="ABCDS9xxxxxxxxxxrNoEVtb5o6_adfadfyyyyyyyyyy"
 # def get_wosclient() -> OSAPIClient | None:
@@ -45,7 +44,7 @@ DATA_SET_ID = None
 
 
 
-@app.route('/spaces/55700164-83b7-4605-845c-cfb26cb47a87/v1/deployments/cd032aae-2591-41fa-ae49-21b8383539ce/online', methods=['POST'])
+@app.route('/spaces/<space_id>/v1/deployments/<deployment_id>/online', methods=['POST'])
 def wml_online(space_id, deployment_id):
     if not request.json:
         print("not json - reject")
@@ -81,7 +80,7 @@ def wml_online(space_id, deployment_id):
     return jsonify(scoring_response["predictions"][0])
 
 
-@app.route('/spaces/55700164-83b7-4605-845c-cfb26cb47a87/v1/deployments', methods=['GET'])
+@app.route('/spaces/<space_id>/v1/deployments', methods=['GET'])
 def deployments(space_id):
     # This API endpoint is optional.
     # It should list all the deployed models in your custom environment.
