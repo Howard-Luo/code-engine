@@ -1,0 +1,27 @@
+{
+    "query": "My name is Robert Aragon, and my social security number is 489-36-8350. Here's the number to my credit card",
+    "wx_config": {
+        "model_id": "meta-llama/llama-2-70b-chat",
+        "apikey": "xxx",
+        "url": "https://us-south.ml.cloud.ibm.com",
+        "project_id": "xxx",
+        "max_new_tokens": 512,
+        "decoding_method": "greedy",
+        "stop_sequences": [],
+        "repetition_penalty": 1
+    },
+    "wd_config": {
+        "api_key": "xxx",
+        "version": "2023-03-31",
+        "enable_passages": true,
+        "query_fields": [
+            "text"
+        ],
+        "result_characters": 400,
+        "result_count": 10
+    },
+    "prompts": {
+        "watsonx_prompt": "",
+        "watsonx_prompt_end": ""
+    }
+}
